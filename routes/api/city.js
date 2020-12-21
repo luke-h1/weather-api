@@ -28,6 +28,7 @@ router.get('/current/:city', async (req, res) => {
     const REQ_URL = encodeURI(
       `http://api.weatherapi.com/v1/current.json?key=${process.env.API_KEY}&q=${req.params.city}`
     );
+    
     const headers = {
       'user-agent': 'node.js',
     
