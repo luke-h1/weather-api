@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
+const config = require('config');
 
 // @route   GET api/weather/:test
 // @desc    GET test route
 // @access  PUBLIC
 
-// POSTMAN REQ 
+// POSTMAN REQ
 // http://localhost:8080/api/city/weather/hello
 router.get('/weather/:test', async (req, res) => {
-
   try {
     return res.status(200).json({ msg: `Search Params: ${req.params.test}` });
   } catch (e) {
@@ -25,7 +25,9 @@ router.get('/weather/:test', async (req, res) => {
 router.get('/current/:city', async (req, res) => {
   try {
     const REQ_URL = encodeURI(
-      `http://api.weatherapi.com/v1/current.json?key=${process.env.WEATHER_API_KEY}&q=${req.params.city}`
+      `https://cors-anywhere.herokuapp.com/http://api.weatherapi.com/v1/current.json?key=${config.get(
+        'weatherApiKey'
+      )}&q=${req.params.city}`
     );
     const headers = {
       'user-agent': 'node.js',
