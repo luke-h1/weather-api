@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
-const config = require('config');
+require('dotenv').config();
 
 // @route   GET api/weather/:test
 // @desc    GET test route
@@ -18,22 +18,21 @@ router.get('/weather/:test', async (req, res) => {
   }
 });
 
-// @route   GET current/:city
-// @desc    GET weather for city from Weather API
-// @access  PUBLIC
-// http://localhost:8080/api/city/current/sheffield
+// @route     GET current/:city
+// @desc      GET weather for city from Weather API
+// @access    PUBLIC
+// @postman   http://localhost:8080/api/city/current/sheffield
+
 router.get('/current/:city', async (req, res) => {
   try {
     const REQ_URL = encodeURI(
-      `http://api.weatherapi.com/v1/current.json?key=${config.get(
-        'weatherApiKey'
-      )}&q=${req.params.city}`
+      `http://api.weatherapi.com/v1/current.json?key=${process.env.API_KEY}&q=${req.params.city}`
     );
     const headers = {
       'user-agent': 'node.js',
     };
     const response = await axios.get(REQ_URL);
-    return res.json(response.data)
+    return res.json(response.data);
   } catch (e) {
     console.error(e.message);
     return res.status(404).json({ msg: `No city found. Error: ${e.message}` });
