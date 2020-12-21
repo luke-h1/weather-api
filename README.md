@@ -16,12 +16,11 @@ You can read about these technologies here:
 
 * server.js - Main server file responsible for starting Express, initializing middleware, initializing CORS etc. 
 <br />
-<hr />
 
-### Getting started
+## Getting started
 
 
-## Available NPM commands: 
+### Available NPM commands: 
 
 
 ### server 
