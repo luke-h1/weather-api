@@ -8,7 +8,7 @@ require('dotenv').config();
 // @access  PUBLIC
 
 // POSTMAN REQ
-// http://localhost:8080/api/city/weather/hello
+// http://localhost:8080/api/city/weather/random-query-goes-here
 router.get('/weather/:test', async (req, res) => {
   try {
     return res.status(200).json({ msg: `Search Params: ${req.params.test}` });
@@ -21,7 +21,7 @@ router.get('/weather/:test', async (req, res) => {
 // @route     GET current/:city
 // @desc      GET weather for city from Weather API
 // @access    PUBLIC
-// @postman   http://localhost:8080/api/city/current/sheffield
+// @postman   http://localhost:8080/api/city/current/your-city-here
 
 router.get('/current/:city', async (req, res) => {
   try {
