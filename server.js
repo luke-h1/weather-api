@@ -9,7 +9,10 @@ app.get('/', (req, res) =>
 );
 
 // define routes
+app.use('/api/weather/:city', require('./routes/api/weather'))
 
+
+ 
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
