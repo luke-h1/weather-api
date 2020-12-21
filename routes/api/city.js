@@ -30,6 +30,7 @@ router.get('/current/:city', async (req, res) => {
     );
     const headers = {
       'user-agent': 'node.js',
+    
     };
     const response = await axios.get(REQ_URL);
     return res.json(response.data);
