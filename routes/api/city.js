@@ -18,14 +18,14 @@ router.get('/weather/:test', async (req, res) => {
   }
 });
 
-// @route   GET api/weather/:city
+// @route   GET current/:city
 // @desc    GET weather for city from Weather API
 // @access  PUBLIC
-
-router.get('/api/current/:city', async (req, res) => {
+// http://localhost:8080/api/city/current/sheffield
+router.get('/current/:city', async (req, res) => {
   try {
     const REQ_URL = encodeURI(
-      `https://cors-anywhere.herokuapp.com/http://api.weatherapi.com/v1/current.json?key=${process.env.WEATHER_API_KEY}&q=${req.params.city}`
+      `http://api.weatherapi.com/v1/current.json?key=${process.env.WEATHER_API_KEY}&q=${req.params.city}`
     );
     const headers = {
       'user-agent': 'node.js',
