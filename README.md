@@ -57,6 +57,15 @@ npm run clean
 ### To start contributing: 
 <br />
 
+
+## Get an API key 
+* Go to https://www.weatherapi.com/ to register for an API key and add it to .env.example 
+* Move .env.example to .env 
+```shell 
+mv .env.example .env
+``` 
+
+
 open a pull request detailing your changes: 
 1. Fork it 
 2. Create your feature branch: `git checkout -b my-new-feature`
