@@ -1,4 +1,6 @@
 const express = require('express');
+
+
 const app = express();
 
 // init middleware
@@ -8,11 +10,11 @@ app.get('/', (req, res) =>
   res.status(200).json({ msg: 'Welcome to the weather API' })
 );
 
-// define routes
-app.use('/api/weather/:city', require('./routes/api/weather'))
+// define routing 
+app.use('/api/city', require('./routes/api/city'))
 
 
- 
+
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
