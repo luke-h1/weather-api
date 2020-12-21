@@ -2,7 +2,6 @@
 
 * Node JS & Express server that acts as a proxy in order to hide  sensitive information (such as API keys) from APIs. 
 
-<br />
 
 This project uses Express & Node JS. 
 
@@ -11,7 +10,6 @@ You can read about these technologies here:
 - [Express](http://expressjs.com/)
 - [NodeJS](https://nodejs.org/en/)
 
-<br  />
 
 ## Project structure 
 * Routes - Contains different API routes. Current this only contains City.js which serves weather information based on city 
@@ -19,15 +17,12 @@ You can read about these technologies here:
 * server.js - Main server file responsible for starting Express, initializing middleware, initializing CORS etc. 
 
 
-<br/>
 
 ## Getting started
 
-<br/>
 
 ### Available NPM commands: 
 
-<br />
 
 ### server 
 * Start a hot reloading development environment accessible at `localhost:8080`
@@ -52,10 +47,8 @@ npm run clean
 ## Contributing 
 * This project is open to contributions. Issued labelled with `Help wanted` or `Good first issue` are a good place to look if you're interested in contributing to this project. Once you've found an issue you want to work on leave a note on the issue stating that you want to work on this issue. 
 
-<br />
 
 ### To start contributing: 
-<br />
 
 
 ## Get an API key 
