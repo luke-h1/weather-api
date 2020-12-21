@@ -25,7 +25,7 @@ router.get('/weather/:test', async (req, res) => {
 router.get('/current/:city', async (req, res) => {
   try {
     const REQ_URL = encodeURI(
-      `https://cors-anywhere.herokuapp.com/http://api.weatherapi.com/v1/current.json?key=${config.get(
+      `http://api.weatherapi.com/v1/current.json?key=${config.get(
         'weatherApiKey'
       )}&q=${req.params.city}`
     );
@@ -33,7 +33,7 @@ router.get('/current/:city', async (req, res) => {
       'user-agent': 'node.js',
     };
     const response = await axios.get(REQ_URL);
-    return response.json();
+    return res.json(response.data)
   } catch (e) {
     console.error(e.message);
     return res.status(404).json({ msg: `No city found. Error: ${e.message}` });
