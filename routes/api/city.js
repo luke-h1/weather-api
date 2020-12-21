@@ -6,7 +6,10 @@ const axios = require('axios');
 // @desc    GET test route
 // @access  PUBLIC
 
-router.get('/test/:test', async (req, res) => {
+// POSTMAN REQ 
+// http://localhost:8080/api/city/weather/hello
+router.get('/weather/:test', async (req, res) => {
+
   try {
     return res.status(200).json({ msg: `Search Params: ${req.params.test}` });
   } catch (e) {
