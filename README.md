@@ -1,6 +1,6 @@
 ### Weather API 
 
-* Node JS & Express server that acts as a proxy in order to hide  sensitive information (such as API keys) from APIs. 
+* Node JS & Express server that acts as a proxy in order to hide  sensitive information (such as API keys)
 
 
 This project uses Express & Node JS. 
