@@ -3,12 +3,11 @@ const router = express.Router();
 const axios = require('axios');
 require('dotenv').config();
 
-// @route   GET api/weather/:test
+// @route   GET api/city/:test
 // @desc    GET test route
 // @access  PUBLIC
 
-// POSTMAN REQ
-// http://localhost:8080/api/city/weather/random-query-goes-here
+
 router.get('/weather/:test', async (req, res) => {
   try {
     return res.status(200).json({ msg: `Search Params: ${req.params.test}` });
@@ -18,10 +17,10 @@ router.get('/weather/:test', async (req, res) => {
   }
 });
 
-// @route     GET current/:city
+// @route     GET api/city/:city
 // @desc      GET weather for city from Weather API
 // @access    PUBLIC
-// @postman   http://localhost:8080/api/city/current/your-city-here
+
 
 router.get('/:city', async (req, res) => {
   try {
