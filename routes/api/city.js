@@ -23,7 +23,7 @@ router.get('/weather/:test', async (req, res) => {
 // @access    PUBLIC
 // @postman   http://localhost:8080/api/city/current/your-city-here
 
-router.get('/current/:city', async (req, res) => {
+router.get('/:city', async (req, res) => {
   try {
     const REQ_URL = encodeURI(
       `http://api.weatherapi.com/v1/current.json?key=${process.env.API_KEY}&q=${req.params.city}`
