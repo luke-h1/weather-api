@@ -10,7 +10,7 @@
     "restart": "rimraf dist && npm run build && npm run start",
     "start": "node dist/index.js",
     "lint": "eslint \"src/**/*.js\" --quiet",
-      "lint:fix": "eslint \"src/**/*.js\" --quiet --fix"
+    "lint:fix": "eslint \"src/**/*.js\" --quiet --fix"
   },
   "repository": {
     "type": "git",
