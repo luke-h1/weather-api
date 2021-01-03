@@ -12,7 +12,12 @@ test('weather route should return 200', async () => {
 });
 test('Weather should have keys location & current', async () => {
   const response = await (0, _supertest.default)(_server.app).get('/api/city/weather/london');
-  const json = await response.json();
-  expect(json.body).toHaveProperty('location');
-  expect(json.body).toHaveProperty('current');
+  expect(response.body).toHaveProperty('location');
+  expect(response.body).toHaveProperty('current');
+  expect(response.body).toHaveProperty('location.region');
+  expect(response.body).toHaveProperty('location.name');
+  expect(response.body).toHaveProperty('location.region');
+  expect(response.body).toHaveProperty('current.condition');
+  expect(response.body).toHaveProperty('current.wind_mph');
+  expect(response.body).toHaveProperty('current.feelslike_c');
 });
