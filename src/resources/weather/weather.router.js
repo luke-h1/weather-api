@@ -31,10 +31,10 @@ router.get('/weather/:city', async (req, res) => {
     // }
 
     const response = await axios.get(REQ)
-    return res.json(response.data)
+    return res.status(200).json({ data: response.data, errors: [] })
   } catch (e) {
     console.error(e.message)
-    return res.status(404).json({ msg: `No city found. Error: ${e.message}` })
+    return res.status(404).json({ msg: `No city found`, errors: e.message })
   }
 })
 export default router
