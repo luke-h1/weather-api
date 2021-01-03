@@ -15,7 +15,6 @@ app.use((req, res, next) => {
   )
   next()
 })
-
 app.use(json())
 app.use(urlencoded({ extended: true }))
 app.use(morgan('dev'))
