@@ -8,7 +8,9 @@
     "test": "cross-env NODE_ENV=testing jest --forceExit --detectOpenHandles  --silent",
     "dev": "nodemon --exec npm run restart",
     "restart": "rimraf dist && npm run build && npm run start",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "lint": "eslint \"src/**/*.js\" --quiet",
+      "lint:fix": "eslint \"src/**/*.js\" --quiet --fix"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
   },
   "homepage": "https://github.com/luke-h1/weather-api#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "cuid": "^2.1.8",

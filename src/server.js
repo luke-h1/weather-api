@@ -2,9 +2,9 @@ import express from 'express'
 import { json, urlencoded } from 'body-parser'
 import morgan from 'morgan'
 import cors from 'cors'
-import weatherRouter from './resources/weather/weather.router'
+import weatherRouter from './resources/weather/weather.router.js'
 
-const app = express()
+export const app = express()
 app.disable('x-powered-by')
 app.use(cors())
 app.use((req, res, next) => {
