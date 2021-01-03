@@ -16,6 +16,4 @@ test('Weather should have keys location & current', async () => {
   expect(response.body).toHaveProperty('current.condition')
   expect(response.body).toHaveProperty('current.wind_mph')
   expect(response.body).toHaveProperty('current.feelslike_c')
-
 })
-
