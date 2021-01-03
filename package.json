@@ -6,6 +6,8 @@
   "scripts": {
     "build": "babel src --out-dir dist",
     "test": "cross-env NODE_ENV=testing jest --forceExit --detectOpenHandles  --silent",
+    "test-weather": "cross-env NODE_ENV=testing jest weather.test.js --forceExit --detectOpenHandles  --silent",
+    "test-server": "cross-env NODE_ENV=testing jest server.test.js --forceExit --detectOpenHandles  --silent",
     "dev": "nodemon --exec npm run restart",
     "restart": "rimraf dist && npm run build && npm run start",
     "start": "node dist/index.js",
@@ -65,7 +67,6 @@
     "verbose": true,
     "testURL": "http://localhost/",
     "testEnvironment": "node",
-    "setupTestFrameworkScriptFile": "<rootDir>/api-setup.js",
     "testPathIgnorePatterns": [
       "dist/"
     ],
