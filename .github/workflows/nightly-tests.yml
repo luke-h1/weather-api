@@ -22,5 +22,8 @@ jobs:
     - name: Install dependencies
       run: npm i 
 
+    - name: start server
+      run: npm run dev
+
     - name: run unit tests 
       run: npm run test:ci
