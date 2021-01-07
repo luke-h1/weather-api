@@ -1,9 +1,9 @@
 
 name: Nightly unit tests
 
-on:
-  schedule:
-    - cron:  '20 19 * * *'
+# on:
+#   schedule:
+#     - cron:  '20 19 * * *'
 on: 
     push:
       branches:
