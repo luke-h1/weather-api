@@ -23,7 +23,7 @@ jobs:
       run: npm i 
 
     - name: start server
-      run: npm run dev
+      run: npm run start
 
     - name: run unit tests 
       run: npm run test:ci
