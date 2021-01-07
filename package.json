@@ -12,7 +12,8 @@
     "restart": "rimraf dist && npm run build && npm run start",
     "start": "node dist/index.js",
     "lint": "eslint \"src/**/*.js\" --quiet",
-    "lint:fix": "eslint \"src/**/*.js\" --quiet --fix"
+    "lint:fix": "eslint \"src/**/*.js\" --quiet --fix",
+    "test:ci": "cross-env NODE_ENV=testing jest --silent"
   },
   "repository": {
     "type": "git",
