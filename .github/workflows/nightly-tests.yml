@@ -3,9 +3,11 @@ name: Nightly unit tests
 
 on:
   schedule:
-    - cron: '*/1 * * * *'
-    # - cron:  '20 19 * * *'
-
+    - cron:  '20 19 * * *'
+on: 
+    push:
+      branches:
+        - dev
 jobs:
   build:
     runs-on: ubuntu-latest
