@@ -13,7 +13,9 @@ router.get('/:test', async (req, res) => {
     return res.status(200).json({ msg: `Search Params: ${req.params.test}` })
   } catch (e) {
     console.error(e)
-    return res.status(500).json({ msg: `Internal server error, ${e.message}` })
+    return res
+      .status(500)
+      .json({ msg: `Internal server error`, errors: `${e.message}` })
   }
 })
 
