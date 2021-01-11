@@ -3,8 +3,17 @@ import { json, urlencoded } from 'body-parser'
 import morgan from 'morgan'
 import cors from 'cors'
 import weatherRouter from './resources/weather/weather.router.js'
-
+import rateLimit from 'express-rate-limit'
 export const app = express()
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 mins
+  max: 80, // limit each IP addr to 80 requests per 15 mins
+})
+
+// apply to all requests
+app.use(limiter)
+
 app.disable('x-powered-by')
 app.use(cors())
 app.use((req, res, next) => {
