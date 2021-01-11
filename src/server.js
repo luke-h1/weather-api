@@ -5,11 +5,12 @@ import cors from 'cors'
 import weatherRouter from './resources/weather/weather.router.js'
 import rateLimit from 'express-rate-limit'
 export const app = express()
-
+app.set('trust proxy', 1)
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 mins
   max: 80, // limit each IP addr to 80 requests per 15 mins
+  message: 'Too many requests from this IP. Try again in 15 minutes',
 })
 
 // apply to all requests
