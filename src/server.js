@@ -4,8 +4,11 @@ import morgan from 'morgan';
 import cors from 'cors';
 import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
+import dotenv from 'dotenv';
 import { errorHandler } from './middleware/errorMiddleware.js';
 import weatherRoutes from './routes/weatherRoutes.js';
+
+dotenv.config();
 
 export const app = express();
 app.set('trust proxy', 1);
