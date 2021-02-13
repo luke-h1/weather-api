@@ -1,10 +1,11 @@
 import express from 'express';
-import { json, urlencoded } from 'body-parser';
+// import { json, urlencoded } from 'body-parser';
 import morgan from 'morgan';
 import cors from 'cors';
 import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
-import { notFound, errorHandler } from './middleware/errorMiddleware.js';
+import { errorHandler } from './middleware/errorMiddleware.js';
+import weatherRoutes from './routes/weatherRoutes.js';
 
 export const app = express();
 app.set('trust proxy', 1);
@@ -17,7 +18,10 @@ const limiter = rateLimit({
 
 app.use(helmet());
 app.use(limiter);
+app.use(errorHandler);
 app.use(express.json());
+app.use(morgan('dev'));
+app.use(express.json({ extended: false }));
 app.disable('x-powered-by');
 app.use(cors());
 app.use((req, res, next) => {
@@ -28,10 +32,8 @@ app.use((req, res, next) => {
   );
   next();
 });
-app.use(json());
-app.use(urlencoded({ extended: true }));
-app.use(morgan('dev'));
-app.use(express.json({ extended: false }));
+// app.use(json());
+// app.use(urlencoded({ extended: true }));
 
 const PORT = process.env.PORT || 5001;
 
@@ -39,8 +41,7 @@ app.get('/', (req, res) => {
   res.send('API is running');
 });
 
-app.use(notFound);
-app.use(errorHandler);
+app.use('/api/weather/', weatherRoutes);
 
 export const start = async () => {
   try {

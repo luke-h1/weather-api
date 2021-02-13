@@ -1,5 +1,7 @@
+/* eslint-disable consistent-return */
 import asyncHandler from 'express-async-handler';
 import axios from 'axios';
+// require('dotenv').config();
 
 const city = asyncHandler(async (req, res) => {
   try {
@@ -10,7 +12,7 @@ const city = asyncHandler(async (req, res) => {
     return res.status(200).json({ data: response.data, errors: [] });
   } catch (e) {
     console.error(e);
-    throw new Error('No city found');
+    res.status(404).json({ errors: 'No city found' });
   }
 });
 export { city };
