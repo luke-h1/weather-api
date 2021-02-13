@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
+import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 
 export const app = express();
 app.set('trust proxy', 1);
@@ -27,7 +28,7 @@ app.use((req, res, next) => {
   );
   next();
 });
-// app.use(json());
+app.use(json());
 app.use(urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(express.json({ extended: false }));
@@ -38,8 +39,8 @@ app.get('/', (req, res) => {
   res.send('API is running');
 });
 
-app.use(notFound)
-app.use(errorHandler)
+app.use(notFound);
+app.use(errorHandler);
 
 export const start = async () => {
   try {
