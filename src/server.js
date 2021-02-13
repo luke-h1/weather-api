@@ -5,6 +5,7 @@ import cors from 'cors';
 import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
 import dotenv from 'dotenv';
+import colors from 'colors';
 import { errorHandler } from './middleware/errorMiddleware.js';
 import weatherRoutes from './routes/weatherRoutes.js';
 
@@ -49,7 +50,7 @@ app.use('/api/weather/', weatherRoutes);
 export const start = async () => {
   try {
     app.listen(PORT, () => {
-      console.log(`server running on ${PORT}`);
+      console.log(`server running on ${PORT}`.cyan.bold);
     });
   } catch (e) {
     console.error(e);
